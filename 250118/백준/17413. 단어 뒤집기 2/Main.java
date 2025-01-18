@@ -34,8 +34,8 @@ public class Main {
             }
     	}
     	result.append(tmp.reverse());
-      System.out.println(result.toString());
+        System.out.println(result.toString());
 
-      br.close();
+        br.close();
     }
 }
