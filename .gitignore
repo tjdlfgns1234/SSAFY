@@ -1,0 +1,101 @@
+# General OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python-related files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+*.eggs/
+*.pytest_cache/
+.env
+.venv
+*.ipynb_checkpoints
+
+# Java-related files
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.project
+*.classpath
+*.settings/
+target/
+bin/
+out/
+
+# C++-related files
+*.obj
+*.o
+*.exe
+*.out
+*.a
+*.lib
+*.so
+*.dll
+*.dSYM/
+.vscode/
+
+# IDE-specific files
+# PyCharm
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/vcs.xml
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Eclipse
+*.metadata/
+*.tmp
+*.bak
+*.swp
+*.patch
+
+# IntelliJ
+*.iws
+*.ipr
+*.iml
+.idea/
+
+# Miscellaneous
+*.log
+*.bak
+*.tmp
+*.swp
+*.stackdump
+
+# Package managers
+node_modules/
+dist/
+build/
+
+# Compiled output
+*.manifest
+*.tlog
+
+# OS-specific files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
