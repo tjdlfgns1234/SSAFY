@@ -9,8 +9,8 @@ class Solution
         String[] input = br.readLine().split(" "); // 입력받은 값을 공백을 기준으로 나눔
 
 	    int n = Integer.parseInt(input[0]); 
-        int m = Integer.parseInt(input[0]); 
-        int l = Integer.parseInt(input[0]); 
+        int m = Integer.parseInt(input[1]); 
+        int l = Integer.parseInt(input[2]); 
         
         int[] dp = new int[51];
         int ball = 0, ans = 0;
