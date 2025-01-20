@@ -16,7 +16,7 @@ class Solution
 		for (int test_case=1; test_case<=T;test_case++) {
 			String[] a = br.readLine().trim().split(" ");
 	 		StringBuilder sb = new StringBuilder();
-                StringBuilder sb2 = new StringBuilder();
+                        StringBuilder sb2 = new StringBuilder();
                 
                         for (char  i : a[0].toCharArray()) {
                         for (char j : s1.toCharArray()){
