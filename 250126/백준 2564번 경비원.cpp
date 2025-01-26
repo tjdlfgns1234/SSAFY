@@ -14,6 +14,9 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 
+// 수학적으로도 풀 수 있음.
+// 이 풀이는 BFS
+
 void solve();
 int dist(int sx, int sy, int x, int y);
 pii trans(int x, int y);
