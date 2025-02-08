@@ -34,15 +34,15 @@ void solve() {
     cin >> n >> m;
 
     int f = 0; // flag
-    for (int i = 0; i < n; i++) // 32 비트이므로
-        if (!(m & (1 << i)))
+    for (int i = 32; i >= n; i--) // 32 비트이므로
+        if (!(n & (1 << i)))
             f = 1;
 
     string ans = "";
 
     if (!f)
-        ans = "ON";
+        ans = "YES";
     else
-        ans = "OFF";
-    cout << "#" << cnt++ << " " << ans << '\n';
+        ans = "NO";
+    cout << "#" << cnt << " " << ans << '\n';
 }
