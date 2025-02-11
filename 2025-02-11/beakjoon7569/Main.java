@@ -1,4 +1,4 @@
-package solving.beakjoon7569;
+package beakjoon7569;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
