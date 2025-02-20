@@ -99,3 +99,7 @@ $RECYCLE.BIN/
 
 # Linux
 *~
+
+
+*.iml
+*.xml
