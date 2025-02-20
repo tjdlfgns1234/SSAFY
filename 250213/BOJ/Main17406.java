@@ -82,40 +82,36 @@ public class Main17406 {
     }
 
     public static void rotate(int[][] tmp, int[] rotateInfo) {
-        int[][] tmpArr = new int[arr.length][arr[0].length];
-        for (int i=1; i<tmpArr.length; ++i) {
-            for (int j=1; j<tmpArr[i].length; ++j) {
-                rowMin = Integer.MAX_VALUE;
-                tmpArr[i][j] = tmp[i][j];
-            }
-        }
-
-
         for (int s=1; s<=rotateInfo[2]; ++s) {
-            for (int currC = rotateInfo[1] - s + 1; currC <= rotateInfo[1]+s; ++currC) {
-                int currR = rotateInfo[0] - s;
-                tmp[currR][currC] = tmpArr[currR][currC-1];
+            int r = rotateInfo[0];
+            int c = rotateInfo[1];
+
+            int tmpNum1 = tmp[r-s][c+s];
+            for (int currC = c + s; currC > c-s; --currC) {
+                int currR = r - s;
+                tmp[currR][currC] = tmp[currR][currC-1];
             }
 
-            for (int currR = rotateInfo[0] - s + 1; currR <= rotateInfo[0]+s; ++currR) {
-                int currC = rotateInfo[1] + s;
-                tmp[currR][currC] = tmpArr[currR-1][currC];
+            int tmpNum2 = tmp[r+s][c+s];
+            for (int currR = r + s; currR > r-s; --currR) {
+                int currC = c + s;
+                tmp[currR][currC] = tmp[currR-1][currC];
             }
+            tmp[r-s+1][c+s] = tmpNum1;
 
-            for (int currC = rotateInfo[1] + s - 1; currC >= rotateInfo[1]-s; --currC) {
-                int currR = rotateInfo[0] + s;
-                tmp[currR][currC] = tmpArr[currR][currC+1];
+            tmpNum1 = tmp[r+s][c-s];
+            for (int currC = c - s; currC < c+s; ++currC) {
+                int currR = r + s;
+                tmp[currR][currC] = tmp[currR][currC+1];
             }
+            tmp[r+s][c+s-1] = tmpNum2;
 
-            for (int currR = rotateInfo[0] + s - 1; currR >= rotateInfo[0]-s; --currR) {
-                int currC = rotateInfo[1] - s;
-                tmp[currR][currC] = tmpArr[currR+1][currC];
+
+            for (int currR = r - s; currR < r+s; ++currR) {
+                int currC = c - s;
+                tmp[currR][currC] = tmp[currR+1][currC];
             }
-
-
-            for (int i=0; i<arr.length; ++i) {
-                tmpArr[i] = Arrays.copyOf(tmp[i], tmp[i].length);
-            }
+            tmp[r+s-1][c-s] = tmpNum1;
         }
     }
 
