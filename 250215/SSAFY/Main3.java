@@ -31,7 +31,6 @@ public class Main3 {
         }
     }
 
-    static int chk = 0;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -48,10 +47,8 @@ public class Main3 {
                 }
             }
 
-            chk = 0;
             solve();
 
-            System.out.println("chk: " + chk);
 
         }
     }
@@ -62,7 +59,6 @@ public class Main3 {
             Arrays.fill(dist[i], Integer.MAX_VALUE);
         }
 
-//        Queue<Point> q = new ArrayDeque<>();
         PriorityQueue<Point> pq = new PriorityQueue<>();
         dist[1][1] = 0;
         pq.add(new Point(1, 1, dist[1][1]));
@@ -71,10 +67,8 @@ public class Main3 {
         int[] dc = {1, 0, -1, 0};
 
         boolean[][] visited = new boolean[N+1][N+1];
-//        visited[1][1] = true;
 
         while (!pq.isEmpty()) {
-            ++chk;
             Point curr = pq.poll();
 
             if (curr.r == N && curr.c == N) {
