@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Z {
+public class Main {
     static int row, col;
     static int count = 0;
     public static void main(String[] args) throws IOException {
