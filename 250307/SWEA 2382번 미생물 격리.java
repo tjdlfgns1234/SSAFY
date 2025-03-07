@@ -61,19 +61,10 @@ public class Solution {
         }
     }
 
-    private static void solve() {
-        // 사용자는 초기 위치부터 충전할 수 있다.    
+    private static void solve() {  
     	for(int i = 0; i < m;i++) {
     		move();
     		merge();
-    		
-//            System.out.println("#" + (i+1));
-//    		for(int j = 0; j < k;j++){
-//    			if(virus[j].size == 0)
-//    				continue;
-//    		    System.out.println(virus[j].x + " " + virus[j].y + " " + virus[j].size + " " +virus[j].dir);
-//    		}
-    	
     	}
     	
     	for(int i = 0; i < k;i++)
