@@ -55,21 +55,11 @@ public class Main {
 	private static void dfs(int x, int y) {
 		if(x == n && y == 0) {
 			ans = Math.min(ans, Calc());
-			
-//			  System.out.println();
-//			  for(int i = 0; i < n;i++) {
-//				   for(int j = 0; j < m;j++) 
-//					   System.out.print(chk[i][j] + " ");
-//				   System.out.println();
-//			  }
-//			  
 			return;
 		}
 		
 		// CCTV를 돌리고 채워야 한다.
 		// 표시는 -1로 표기함
-		
-		
 
 		if(0 < mp[x][y] && mp[x][y] < 6) {
 			//  CCTV 인 경우
@@ -92,54 +82,38 @@ public class Main {
 	}
 
 	private static void makeBlank(int x, int y, int type, int dir) {
-		int nx = x;
-		int ny = y;
 		if(type == 1) {
 			// 1번의 경우
 			// 한 방향만 찍으면 됨
-			blank(dir, nx, ny);
+			blank(dir, x, y);
 		}
 		else if(type == 2) {
 			// 2번의 경우
 			// 두 방향을 찍어야함
-			
-			blank(dir, nx, ny);
-			// 복원 // 다른 방향에서 시작
-			nx = x;
-			ny = y;
-			
-			// 수직 으로 다시 박기
+
+			blank(dir, x, y);
 			dir = (dir+2)%4;
-			blank(dir, nx, ny);
+			blank(dir, x, y);
 			
 		}	
 		else if(type == 3) {
 			// 3번의 경우			
-			blank(dir, nx, ny);
-			// 복원 // 다른 방향에서 시작
-			nx = x;
-			ny = y;
-			
-			// 수직 으로 다시 박기
+			blank(dir, x, y);
 			dir = (dir+1)%4;
-			blank(dir, nx, ny);
+			blank(dir, x, y);
 			
 		}
 		else if(type == 4) {
 			// 4번의 경우
 			for(int i = 0; i < 3;i++) {
-				blank(dir, nx, ny);		
-				nx = x;
-				ny = y;
+				blank(dir, x, y);	
 				dir = (dir+1)%4;
 			}
 		}
 		else if(type == 5) {
 			// 5번의 경우
 			for(int i = 0; i < 4;i++) {
-				blank(dir, nx, ny);		
-				nx = x;
-				ny = y;
+				blank(dir, x, y);
 				dir = (dir+1)%4;
 			}
 		}	
@@ -147,54 +121,37 @@ public class Main {
 	}
 
 	private static void fillBlank(int x, int y, int type, int dir) {
-		int nx = x;
-		int ny = y;
 		if(type == 1) {
 			// 1번의 경우
 			// 한 방향만 찍으면 됨
-			fill(dir, nx, ny);
+			fill(dir, x, y);
 		}
 		else if(type == 2) {
 			// 2번의 경우
 			// 두 방향을 찍어야함
-			
-			fill(dir, nx, ny);
-			// 복원 // 다른 방향에서 시작
-			nx = x;
-			ny = y;
-			
-			// 수직 으로 다시 박기
+			fill(dir, x, y);
 			dir = (dir+2)%4;
-			fill(dir, nx, ny);
+			fill(dir, x, y);
 			
 		}	
 		else if(type == 3) {
 			// 3번의 경우			
-			fill(dir, nx, ny);
-			// 복원 // 다른 방향에서 시작
-			nx = x;
-			ny = y;
-			
-			// 수직 으로 다시 박기
+			fill(dir, x, y);
 			dir = (dir+1)%4;
-			fill(dir, nx, ny);
+			fill(dir, x, y);
 			
 		}
 		else if(type == 4) {
 			// 4번의 경우
 			for(int i = 0; i < 3;i++) {
-				fill(dir, nx, ny);		
-				nx = x;
-				ny = y;
+				fill(dir, x, y);	
 				dir = (dir+1)%4;
 			}
 		}
 		else if(type == 5) {
 			// 5번의 경우
 			for(int i = 0; i < 4;i++) {
-				fill(dir, nx, ny);		
-				nx = x;
-				ny = y;
+				fill(dir, x, y);
 				dir = (dir+1)%4;
 			}
 		}	
