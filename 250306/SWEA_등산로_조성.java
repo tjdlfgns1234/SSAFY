@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SWEA1949 {
+public class SWEA_등산로_조성 {
     static int result = 0;
 public static void main(String[] args) {
     //1. 등산로는 가장 높은 봉우리에서 시작해야 한다.
