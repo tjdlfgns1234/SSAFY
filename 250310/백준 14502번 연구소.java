@@ -1,4 +1,3 @@
-package SWEA;
 import java.io.*;
 import java.util.*;
 
@@ -15,13 +14,14 @@ class Pair {
 
 }
 
-public class Solution {
+public class Main {
     static BufferedReader br;
     static BufferedWriter bw;
     static StringTokenizer st;
     static Pair[] virus = new Pair[10];
     static int[]dx = { 1,0,-1,0};
     static int[] dy = { 0,1,0,-1};
+    static int idx = 0, vacant = 0;
     static int mp[][];
     static boolean chk[][];
     static int n, m, ans = 0;
@@ -38,8 +38,13 @@ public class Solution {
 
         for(int i = 0; i < n;i++) {
         	st = new StringTokenizer(br.readLine());
-        	for(int j = 0; j < m;j++) 
+        	for(int j = 0; j < m;j++) {
         		mp[i][j] =  Integer.parseInt(st.nextToken());
+        		if(mp[i][j]==2) 
+        			virus[idx++] = new Pair(i,j);
+        		if(mp[i][j] == 0)
+        			vacant++;
+        	}
         }
         
         solve();
@@ -53,7 +58,7 @@ public class Solution {
 
 	private static void makeWall(int cnt) {
 		if(cnt == 3) {
-			
+
 			ans = Math.max(checkSafeArea(), ans);
 			
 			return;
@@ -62,9 +67,11 @@ public class Solution {
 		for(int i = 0; i < n;i++) 
 			for(int j = 0; j < m;j++) 
 				if(mp[i][j] == 0) {
+					vacant--;
 					mp[i][j] = 1;
 					makeWall(cnt+1);
 					mp[i][j] = 0;
+					vacant++;
 				}
 	}
 
@@ -72,10 +79,10 @@ public class Solution {
         chk = new boolean[n][m];
 		
 		Queue <Pair> q = new ArrayDeque<>();
-		for(int i = 0; i < n;i++) 
-			for(int j = 0; j < m;j++) 
-				if(mp[i][j] == 2)
-					q.offer(new Pair(i,j));
+		for(int i = 0; i < idx;i++) 
+			q.offer(virus[i]);
+		
+		int ret = vacant;
 		
 		while(!q.isEmpty()) {
 			Pair curr = q.poll();
@@ -91,18 +98,11 @@ public class Solution {
 					continue;
 				
 				chk[nx][ny] = true;
+				ret--;
 				q.add(new Pair(nx,ny));
 			}
 		}
-		
-		int ret = 0;
-        
-		for(int i = 0; i < n;i++) 
-			for(int j = 0; j < m;j++) 
-				if(!chk[i][j] && mp[i][j] == 0 )
-					ret++;
-		
-		
+
 		return ret;
 	}
 
