@@ -1,4 +1,8 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -11,11 +15,12 @@ public class BOJ최단경로 {
         int idx;
         int weight;
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int start = sc.nextInt() -1;
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] line = br.readLine().split(" ");
+        int n = Integer.parseInt(line[0]);
+        int m = Integer.parseInt(line[1]);
+        int start = Integer.parseInt(br.readLine()) -1;
 
         List<Node>[] graph = new ArrayList[n];
         for(int i = 0; i < n; i++){
@@ -23,9 +28,10 @@ public class BOJ최단경로 {
         }
 
         for(int i = 0; i < m; i++){
-            int u = sc.nextInt()-1;
-            int v = sc.nextInt()-1;
-            int w = sc.nextInt();
+            line = br.readLine().split(" ");
+            int u = Integer.parseInt(line[0])-1;
+            int v = Integer.parseInt(line[1])-1;
+            int w = Integer.parseInt(line[2]);
             Node node = new Node();
             node.idx = v;
             node.weight = w;
