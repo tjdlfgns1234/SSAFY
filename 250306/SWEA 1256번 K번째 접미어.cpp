@@ -15,7 +15,6 @@ int main()
 	cin >> t;
 	while(t--)
 		solve();
-
 }
 void solve() {
 	int n;
