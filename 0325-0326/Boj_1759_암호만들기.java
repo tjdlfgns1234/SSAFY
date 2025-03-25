@@ -3,8 +3,8 @@ import java.io.*;
 
 public class Boj_1759_암호만들기 {
     static int L,C;
-    static StringBuilder alpha;
-    static String vow =  "aeiou";
+    static char[] alpha;
+    static Set<Character> vow = Set.of('a', 'e', 'i', 'o', 'u');
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -15,21 +15,19 @@ public class Boj_1759_암호만들기 {
 
         //최소 한 개 모음, 최소 두 개 자음
 
-        alpha = new StringBuilder();
-        char[] temp = new char[C];
+        alpha = new char[C];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < C; i++) {
-            temp[i] = st.nextToken().charAt(0);
+            alpha[i] = st.nextToken().charAt(0);
         }
 
-        Arrays.sort(temp);
-        alpha.append(temp);
+        Arrays.sort(alpha);
 
         //암호는 무조건 사전 순
-        dfs(0,new char[L], 0,0);
+        dfs(0,0,0, new StringBuilder());
     }
 
-    public static void dfs(int idx, char[] sel, int depth, int mo) {
+    public static void dfs(int idx, int depth, int mo, StringBuilder sel) {
         if (depth == L) {
             //다 뽑음
             if (mo >= 1 && L - mo >= 2) {
@@ -40,18 +38,20 @@ public class Boj_1759_암호만들기 {
 
         if (idx == C) return;
 
-        sel[depth] = alpha.charAt(idx);
-        if (vow.contains(String.valueOf(alpha.charAt(idx)))){
-            mo++;
-            dfs(idx+1, sel,depth+1,mo);
-            dfs(idx+1,sel,depth,--mo);
-
+        //뽑기
+        sel.append(alpha[idx]);
+        if (vow.contains(alpha[idx])) {
+            dfs(idx+1, depth+1,mo+1,sel);
         }
         else {
-            dfs(idx+1, sel,depth+1,mo);
-            dfs(idx+1,sel,depth,mo);
+            dfs(idx+1,depth+1,mo,sel);
         }
 
+        //백트래킹
+        sel.deleteCharAt(sel.length() - 1);
+
+        //안뽑기
+        dfs(idx+1,depth,mo,sel);
     }
 
 }
