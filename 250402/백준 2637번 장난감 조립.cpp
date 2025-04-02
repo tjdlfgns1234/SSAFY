@@ -9,7 +9,6 @@ struct Edge {
 	int e, cost;
 };
 
-
 int n, m;
 vector<vector<Edge>> g(MAX);
 int indeg[MAX] = { 0 };
