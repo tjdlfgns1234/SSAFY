@@ -53,7 +53,7 @@ public class Solution {
             solve();
             
             // System.out.println(chk);
-            
+            // m*cnt 
           
             System.out.println("#" + testcase + " " +ans);
         }
