@@ -4,6 +4,7 @@
 #define MAX 100001
 using namespace std;
 
+// 공부중..
 
 struct Edge {
 	int e, cost;
