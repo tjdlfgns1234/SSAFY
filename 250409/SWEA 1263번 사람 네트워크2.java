@@ -29,7 +29,6 @@ public class Solution {
 	        n = Integer.parseInt(st.nextToken());
 	        ans = INF;
 	        arr = new int[n][n];
-	        dp = new int[n+1][n+1];
 	        for(int i = 0; i < n;i++)
 	        	for(int j = 0; j < n;j++)
 	        		arr[i][j] = Integer.parseInt(st.nextToken());
