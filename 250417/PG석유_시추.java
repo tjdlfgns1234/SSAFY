@@ -1,5 +1,5 @@
 import java.util.*;
-class Solution {
+class PG석유_시추 {
     static int[] dx = {0,0,-1,1};
     static int[] dy = {1,-1,0,0};
     public int solution(int[][] land) {

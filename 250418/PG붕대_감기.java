@@ -1,4 +1,4 @@
-class Solution {
+class PG붕대_감기 {
     public int solution(int[] bandage, int health, int[][] attacks) {
         //공격 인덱스
         int idx = 0;
