@@ -43,7 +43,7 @@ void solve() {
     for(int i = 0; i < n;i++) cin >> a, pq.push(a);
     for(int i = 0; i < m;i++) cin >> b[i];
 
-    int ans = 1;
+    int ans = 1; 
     for(int i = 0; i < m;i++){
         if(b[i]<= pq.top()){ // M <= N 임이 보장
             int cur = pq.top();
