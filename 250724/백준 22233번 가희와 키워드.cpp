@@ -14,57 +14,58 @@ typedef pair<ll, ll> pll;
 
 void solve();
 
-// set을 사용하는 문제
-// 파싱을 구현함.
+// unoderded set 사용, set 보다 약 2배 정도 빠름
+// 1372ms -> 608ms
+// 필요 없는 오직은 지우자
 
 int n, m;
-set<string>st;
+unordered_set<string>st;
 
 int main()
 {
-	ios::sync_with_stdio(NULL);
-	cin.tie(NULL), std::cout.tie(NULL);
+    ios::sync_with_stdio(NULL);
+    cin.tie(NULL), std::cout.tie(NULL);
 
-	// freopen("input.txt", "r", stdin);
+    // freopen("input.txt", "r", stdin);
 
-	int t = 1;
-	// cin >> t;
+    int t = 1;
+    // cin >> t;
 
-	while (t--)
-		solve();
+    while (t--)
+        solve();
 
-	return 0;
+    return 0;
 }
 void solve() {
-     cin >> n >> m;
+    cin >> n >> m;
 
     string s;
-    for(int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
         cin >> s, st.insert(s);
 
     vector<string> cur;
-    for(int i = 0; i < m;i++){
+    for (int i = 0; i < m; i++) {
         cin >> s;
         string tmp = "";
-        for(auto& j : s){
-            if(j != ',')
-                tmp+= j;
+        for (auto& j : s) {
+            if (j != ',')
+                tmp += j;
             else
-                cur.push_back(tmp), tmp ="";
+                cur.push_back(tmp), tmp = "";
         }
 
-        if(tmp != "")
+        if (tmp != "")
             cur.push_back(tmp);
-        cur.erase(unique(all(cur)), cur.end());
+        // cur.erase(unique(all(cur)), cur.end());
 
-        for(auto& k : cur){
-            if(st.count(k) != 0)
+        for (auto& k : cur) {
+            if (st.count(k) != 0)
                 st.erase(k);
         }
 
         cout << st.size() << '\n';
         cur.clear();
     }
-    
+
 
 }
