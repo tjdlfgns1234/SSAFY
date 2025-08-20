@@ -16,6 +16,7 @@ void solve();
 
 /*
     S1, sliding window, set
+    회전한다는 사실을 신경을 못써 틀렸다.
 */
 
 
