@@ -13,13 +13,16 @@ typedef pair<ll, ll> pll;
 
 void solve();
 
+/*
+    G5, DFS
+*/
+
 int n;
 int arr[101];
 
 void dfs(int next, int cnt, int start);
 vector<int> sel, ans;
 int chk[101];
-
 
 int main()
 {
