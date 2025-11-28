@@ -29,7 +29,7 @@ int main()
 	ios::sync_with_stdio(NULL);	
 	cin.tie(NULL), std::cout.tie(NULL);
 
-	freopen("input.txt", "r", stdin);
+	//freopen("input.txt", "r", stdin);
 
 	int t = 1;
 	cin >> t;
